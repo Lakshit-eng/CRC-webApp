@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/notify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Job Posting Form</title>
+</head>
+<body>
+<div class="navbar">
+    <h2>Recruit Hub</h2>
+</div>
+<div class="container">
+    <form action="/submit-job" method="POST">
+        <div class="form_group">
+            <div class="group1">
+                <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required>
+        
+            <label for="companyDescription">Company Description:</label>
+            <textarea id="companyDescription" name="companyDescription" rows="4" required></textarea>
+        
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+        
+            <label for="jobDescription">Job Description:</label>
+            <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+            </div>
+            <div class="group2">
+                <label for="applyBefore">Apply Before:</label>
+            <input type="date" id="applyBefore" name="applyBefore" required>
+        
+            <label for="companyRating">Company Rating:</label>
+                <ul>
+                    <i class="fa fa-star fa-1.5x" id="star1"></i>
+                    <i class="fa fa-star fa-1.5x" id="star2"></i>
+                    <i class="fa fa-star fa-1.5x" id="star3"></i>
+                    <i class="fa fa-star fa-1.5x" id="star4"></i>
+                    <i class="fa fa-star fa-1.5x" id="star5"></i>
+                </ul>
+        
+            <label for="ctc">CTC of the Job:</label>
+            <input type="text" id="ctc" name="ctc" required>
+        
+            <label for="extra">Extra Information:</label>
+            <textarea id="extra" name="extra" rows="3"></textarea>
+        
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+<script>
+const stars = document.querySelectorAll('.fa-star');
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        // Remove 'star-checked' class from all stars
+        stars.forEach(s => s.classList.remove('star-checked'));
+        
+        // Add 'star-checked' class to the clicked star and all previous stars
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add('star-checked');
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
